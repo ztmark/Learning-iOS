@@ -24,13 +24,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9K2-mA-xQd">
-                                <rect key="frame" x="28" y="66.5" width="102.5" height="125.5"/>
-                                <state key="normal" title="7"/>
-                                <connections>
-                                    <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psd-1u-V8V"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiC-Nk-FOd">
                                 <rect key="frame" x="138.5" y="66.5" width="102.5" height="125.5"/>
                                 <state key="normal" title="8"/>
@@ -164,6 +157,13 @@
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JOX-yp-07u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9K2-mA-xQd">
+                                <rect key="frame" x="28" y="66" width="102.5" height="125.5"/>
+                                <state key="normal" title="7"/>
+                                <connections>
+                                    <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psd-1u-V8V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -187,6 +187,7 @@
                             <constraint firstItem="Mal-63-lma" firstAttribute="height" secondItem="9K2-mA-xQd" secondAttribute="height" id="9X4-v0-afD"/>
                             <constraint firstItem="9K2-mA-xQd" firstAttribute="top" secondItem="fY8-Ci-J5z" secondAttribute="bottom" constant="8" id="9ch-qm-Vet"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kJK-ve-hJF" secondAttribute="bottom" constant="8" id="BYY-Rt-bEE"/>
+                            <constraint firstItem="9K2-mA-xQd" firstAttribute="top" secondItem="fY8-Ci-J5z" secondAttribute="bottom" constant="8" id="BcZ-U9-5Mh"/>
                             <constraint firstItem="kIo-Sw-qaR" firstAttribute="height" secondItem="9K2-mA-xQd" secondAttribute="height" id="CgT-i0-alB"/>
                             <constraint firstItem="hvi-UQ-UxU" firstAttribute="leading" secondItem="Goe-4n-KR4" secondAttribute="trailing" constant="8" id="D5j-7H-1fG"/>
                             <constraint firstItem="6p5-RL-Bjh" firstAttribute="leading" secondItem="yuI-ZX-e1g" secondAttribute="trailing" constant="8" id="DCR-aw-yJE"/>
@@ -265,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-534" y="-390"/>
+            <point key="canvasLocation" x="-375" y="-392"/>
         </scene>
     </scenes>
 </document>
