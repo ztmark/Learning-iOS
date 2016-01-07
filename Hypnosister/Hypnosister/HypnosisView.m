@@ -39,6 +39,36 @@
     [[UIColor lightGrayColor] setStroke];
 
     [path stroke];
+
+    // set shadow
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(currentContext);
+    CGContextSetShadow(currentContext, CGSizeMake(4, 7), 3);
+    
+    UIImage *logo = [UIImage imageNamed:@"logo.png"];
+    [logo drawInRect:bounds];
+
+    CGContextRestoreGState(currentContext);
+
+
+    CGContextSaveGState(currentContext);
+    [path addClip];
+
+    CGFloat location[2] = {0.0, 1.0};
+    CGFloat components[8] = { 1.0, 1.0, 0.0, 1.0,
+                            1.0, 0.0, 1.0, 1.0};
+    CGPoint startPoint = CGPointMake(100, 350);
+    CGPoint endPoint = CGPointMake(100, 50);
+
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, components, location, 2);
+
+
+    CGContextDrawLinearGradient(currentContext, gradient, startPoint, endPoint, 0);
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+    CGContextRestoreGState(currentContext);
+
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {

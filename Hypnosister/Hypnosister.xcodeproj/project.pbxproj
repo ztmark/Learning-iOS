@@ -15,6 +15,7 @@
 		4D05F7CE1C3CE20B006CB834 /* HypnosisterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05F7CD1C3CE20B006CB834 /* HypnosisterUITests.m */; };
 		4D05F7DA1C3CE329006CB834 /* HypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05F7D91C3CE329006CB834 /* HypnosisView.m */; };
 		4D05F7DD1C3CEFF5006CB834 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D05F7DC1C3CEFF5006CB834 /* ViewController.m */; };
+		4D569F911C3E4CEF004CBD45 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D569F901C3E4CEF004CBD45 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		4D05F7D91C3CE329006CB834 /* HypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisView.m; sourceTree = "<group>"; };
 		4D05F7DB1C3CEFF5006CB834 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D05F7DC1C3CEFF5006CB834 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4D569F901C3E4CEF004CBD45 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Hypnosister/logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		4D05F7A71C3CE20B006CB834 = {
 			isa = PBXGroup;
 			children = (
+				4D569F901C3E4CEF004CBD45 /* logo.png */,
 				4D05F7B21C3CE20B006CB834 /* Hypnosister */,
 				4D05F7CC1C3CE20B006CB834 /* HypnosisterUITests */,
 				4D05F7B11C3CE20B006CB834 /* Products */,
@@ -196,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D569F911C3E4CEF004CBD45 /* logo.png in Resources */,
 				4D05F7C31C3CE20B006CB834 /* LaunchScreen.storyboard in Resources */,
 				4D05F7C01C3CE20B006CB834 /* Assets.xcassets in Resources */,
 				4D05F7BE1C3CE20B006CB834 /* Main.storyboard in Resources */,
@@ -406,6 +410,7 @@
 				4D05F7D41C3CE20B006CB834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D05F7D51C3CE20B006CB834 /* Build configuration list for PBXNativeTarget "HypnosisterUITests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +419,7 @@
 				4D05F7D71C3CE20B006CB834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
