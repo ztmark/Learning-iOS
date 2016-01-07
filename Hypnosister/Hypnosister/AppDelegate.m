@@ -25,10 +25,28 @@
     [self.window setRootViewController:viewController];
 
 //    CGRect firstFrame = CGRectMake(160, 240, 100, 150);
-    CGRect firstFrame = self.window.bounds;
-    HypnosisView *firstView = [[HypnosisView alloc] initWithFrame:firstFrame];
-//    firstView.backgroundColor = [UIColor redColor];
-    [self.window addSubview:firstView];
+//    CGRect firstFrame = self.window.bounds;
+//    HypnosisView *firstView = [[HypnosisView alloc] initWithFrame:firstFrame];
+//    [self.window addSubview:firstView];
+
+    CGRect screenRect = self.window.bounds;
+    CGRect bigRect = screenRect;
+    bigRect.size.width *= 2.0;
+    bigRect.size.height *= 2.0;
+
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+    [scrollView setPagingEnabled:YES];
+    [self.window addSubview:scrollView];
+
+//    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:bigRect];
+    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:hypnosisView];
+
+    screenRect.origin.x += screenRect.size.width;
+    HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:screenRect];
+    [scrollView addSubview:anotherView];
+
+    scrollView.contentSize = bigRect.size;
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
