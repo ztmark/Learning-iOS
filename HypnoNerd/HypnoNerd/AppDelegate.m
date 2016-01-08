@@ -23,7 +23,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HypnosisViewController *hvc = [[HypnosisViewController alloc] init];
 
-    NSBundle *appBundle = [NSBundle mainBundle];
+//    NSBundle *appBundle = [NSBundle mainBundle];
 //    ReminderViewController *rvc = [[ReminderViewController alloc] initWithNibName:@"ReminderViewController" bundle:appBundle];
     ReminderViewController *rvc = [[ReminderViewController alloc] init];
 
