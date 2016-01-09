@@ -10,6 +10,12 @@
 #import "BNRItem.h"
 #import "ItemStore.h"
 
+@interface ItemViewController ()
+
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+
+@end
+
 @implementation ItemViewController
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
@@ -29,6 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -44,5 +52,20 @@
     return cell;
 }
 
+
+- (IBAction)addNewItem:(id)sender {
+
+}
+
+- (IBAction)toggleEditingMode:(id)sender {
+
+}
+
+- (UIView *)headerView {
+    if (_headerView) {
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    return _headerView;
+}
 
 @end
