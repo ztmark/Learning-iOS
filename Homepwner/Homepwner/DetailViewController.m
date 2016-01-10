@@ -40,7 +40,7 @@
 
 
 - (void)hideKeyboard {
-    [self resignFirstResponder];
+    [self.view endEditing:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
