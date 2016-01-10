@@ -20,7 +20,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     ItemViewController *itemViewController = [[ItemViewController alloc] init];
-    self.window.rootViewController = itemViewController;
+
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemViewController];
+    self.window.rootViewController = navController;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

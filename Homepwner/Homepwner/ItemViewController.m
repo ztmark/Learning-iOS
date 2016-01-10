@@ -9,6 +9,7 @@
 #import "ItemViewController.h"
 #import "BNRItem.h"
 #import "ItemStore.h"
+#import "DetailViewController.h"
 
 @interface ItemViewController ()
 
@@ -25,6 +26,13 @@
 - (instancetype)init {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        self.navigationItem.title = @"Homepwner";
+
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                             target:self
+                                                                             action:@selector(addNewItem:)];
+        self.navigationItem.rightBarButtonItem = bbi;
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
 }
@@ -57,22 +65,6 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
-- (IBAction)toggleEditingMode:(id)sender {
-    if (self.isEditing) {
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        [self setEditing:NO animated:YES];
-    } else {
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        [self setEditing:YES animated:YES];
-    }
-}
-
-- (UIView *)headerView {
-    if (!_headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    return _headerView;
-}
 
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,6 +83,24 @@
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Remove";
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DetailViewController *detailViewController = [[DetailViewController alloc] init];
+
+    NSArray *items = [[ItemStore sharedStore] allItems];
+    BNRItem *selectedItem = items[indexPath.row];
+    detailViewController.item = selectedItem;
+
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+
 
 
 @end
