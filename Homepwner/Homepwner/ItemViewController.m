@@ -19,6 +19,8 @@
 
 @implementation ItemViewController
 
+#pragma mark - View Life cycle
+
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     return [self init];
 }
@@ -44,6 +46,24 @@
     [self.tableView setTableHeaderView:header];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - Actions
+
+- (IBAction)addNewItem:(id)sender {
+    BNRItem *newItem = [[ItemStore sharedStore] createItem];
+    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+
+#pragma mark - Table View data source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[[ItemStore sharedStore] allItems] count];
 }
@@ -56,16 +76,6 @@
     cell.textLabel.text = item.description;
     return cell;
 }
-
-
-- (IBAction)addNewItem:(id)sender {
-    BNRItem *newItem = [[ItemStore sharedStore] createItem];
-    NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-}
-
-
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -95,10 +105,7 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView reloadData];
-}
+
 
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D10C8981C4240EB004C5E0B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D10C8961C4240EB004C5E0B /* DetailViewController.m */; };
 		4D10C8991C4240EB004C5E0B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D10C8971C4240EB004C5E0B /* DetailViewController.xib */; };
+		4DE6B2D01C43B8D900D06608 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B2CF1C43B8D900D06608 /* ImageStore.m */; };
 		4DF31C6F1C40E7C900C36082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C6E1C40E7C900C36082 /* main.m */; };
 		4DF31C721C40E7C900C36082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C711C40E7C900C36082 /* AppDelegate.m */; };
 		4DF31C751C40E7C900C36082 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C741C40E7C900C36082 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 		4D10C8951C4240EB004C5E0B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4D10C8961C4240EB004C5E0B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4D10C8971C4240EB004C5E0B /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		4DE6B2CE1C43B8D900D06608 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
+		4DE6B2CF1C43B8D900D06608 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		4DF31C6A1C40E7C900C36082 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF31C6E1C40E7C900C36082 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4DF31C701C40E7C900C36082 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				4D10C8951C4240EB004C5E0B /* DetailViewController.h */,
 				4D10C8961C4240EB004C5E0B /* DetailViewController.m */,
 				4D10C8971C4240EB004C5E0B /* DetailViewController.xib */,
+				4DE6B2CE1C43B8D900D06608 /* ImageStore.h */,
+				4DE6B2CF1C43B8D900D06608 /* ImageStore.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				4DF31C721C40E7C900C36082 /* AppDelegate.m in Sources */,
 				4DF31C6F1C40E7C900C36082 /* main.m in Sources */,
 				4D10C8981C4240EB004C5E0B /* DetailViewController.m in Sources */,
+				4DE6B2D01C43B8D900D06608 /* ImageStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "ItemStore.h"
 #import "BNRItem.h"
+#import "ImageStore.h"
 
 @interface ItemStore ()
 
@@ -53,6 +54,7 @@
 }
 
 - (void)removeItem:(BNRItem *)item {
+    [[ImageStore sharedStore] deleteImageForKey:item.itemKey];
     [self.privateItems removeObjectIdenticalTo:item];
 }
 

@@ -8,8 +8,9 @@
 
 #import "DetailViewController.h"
 #import "BNRItem.h"
+#import "ImageStore.h"
 
-@interface DetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface DetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -22,10 +23,14 @@
 
 @implementation DetailViewController
 
+- (IBAction)backgroundTapped:(UIControl *)sender {
+    [self.view endEditing:YES];
+}
 
 - (IBAction)takePicture:(UIBarButtonItem *)sender {
 
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.allowsEditing = YES;
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -51,9 +56,12 @@
         dateFormatter.timeStyle = NSDateFormatterNoStyle;
     }
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStylePlain
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItem) UIBarButtonItemStylePlain
                                                                                            target:self
                                                                                            action:@selector(hideKeyboard)];
+    NSString *itemKey = self.item.itemKey;
+    UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
+    self.imageView.image = imageToDisplay;
 }
 
 
@@ -79,9 +87,16 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
+    image = info[UIImagePickerControllerEditedImage];
+    [[ImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     self.imageView.image = image;
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 
