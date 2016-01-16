@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *itemName;
 @property (nonatomic, copy) NSString *serialNumber;
@@ -21,6 +21,5 @@
 - (instancetype)initWithItemName:(NSString *)name;
 - (instancetype)intiWithItemName:(NSString *)name serialNumber:(NSString *)sNumber;
 - (instancetype)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber;
-
 
 @end
