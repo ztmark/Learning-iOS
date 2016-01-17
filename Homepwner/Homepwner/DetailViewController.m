@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (strong, nonatomic) UIPopoverController *imagePickerPopover;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
 @end
 
@@ -82,6 +85,7 @@
     NSString *itemKey = self.item.itemKey;
     UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
     self.imageView.image = imageToDisplay;
+    [self updateFonts];
 }
 
 
@@ -105,6 +109,10 @@
     self.navigationItem.title = _item.itemName;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (instancetype)initForNewItem:(BOOL)isNew {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
@@ -118,6 +126,8 @@
                                                                                         action:@selector(cancel:)];
             self.navigationItem.leftBarButtonItem = cancelItem;
         }
+        NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+        [defaultCenter addObserver:self selector:@selector(updateFonts) name:UIContentSizeCategoryDidChangeNotification object:nil];
     }
     return self;
 }
@@ -210,6 +220,18 @@
     self.imagePickerPopover = nil;
 }
 
+
+- (void)updateFonts {
+    UIFont *font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.nameLabel.font = font;
+    self.serialNumberLabel.font = font;
+    self.valueLabel.font = font;
+    self.dateLabel.font = font;
+
+    self.nameField.font = font;
+    self.serialNumberField.font = font;
+    self.valueField.font = font;
+}
 
 
 @end
