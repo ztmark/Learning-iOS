@@ -141,6 +141,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     image = info[UIImagePickerControllerEditedImage];
+    [self.item setThumbnailFromImage:image];
     [[ImageStore sharedStore] setImage:image forKey:self.item.itemKey];
     self.imageView.image = image;
 //    [self dismissViewControllerAnimated:YES completion:nil];

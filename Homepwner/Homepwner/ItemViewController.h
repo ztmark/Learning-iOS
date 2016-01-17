@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MKZItemCell.h"
 
 @interface ItemViewController : UITableViewController
 
