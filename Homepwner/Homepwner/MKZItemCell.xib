@@ -46,9 +46,17 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZo-jX-aHs">
+                        <rect key="frame" x="0.0" y="2" width="40" height="40"/>
+                        <connections>
+                            <action selector="showImage:" destination="cnT-Dk-iVi" eventType="touchUpInside" id="Bld-jT-A47"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rOr-tv-3AT" firstAttribute="leading" secondItem="pjl-Uj-OfO" secondAttribute="trailing" constant="11" id="1YY-JY-Bml"/>
+                    <constraint firstItem="yZo-jX-aHs" firstAttribute="leading" secondItem="pjl-Uj-OfO" secondAttribute="leading" id="2qX-tU-ZEA"/>
+                    <constraint firstItem="yZo-jX-aHs" firstAttribute="top" secondItem="pjl-Uj-OfO" secondAttribute="top" id="4LH-2d-fLQ"/>
                     <constraint firstItem="tuC-kC-ni3" firstAttribute="top" secondItem="a0u-zg-W3V" secondAttribute="topMargin" constant="-8" id="7MY-Bv-wLg"/>
                     <constraint firstItem="9cW-lF-D1e" firstAttribute="trailing" secondItem="a0u-zg-W3V" secondAttribute="trailingMargin" id="8ET-ga-5PH"/>
                     <constraint firstItem="tuC-kC-ni3" firstAttribute="leading" secondItem="pjl-Uj-OfO" secondAttribute="trailing" constant="11" id="CmI-cm-6sa"/>
@@ -58,9 +66,11 @@
                     <constraint firstItem="9cW-lF-D1e" firstAttribute="leading" secondItem="rOr-tv-3AT" secondAttribute="trailing" constant="8" id="SQU-mY-BfF"/>
                     <constraint firstItem="9cW-lF-D1e" firstAttribute="top" secondItem="a0u-zg-W3V" secondAttribute="topMargin" constant="3" id="Xhe-nj-W9W"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9cW-lF-D1e" secondAttribute="trailing" constant="-8" id="Zs5-cI-CX2"/>
+                    <constraint firstItem="yZo-jX-aHs" firstAttribute="trailing" secondItem="pjl-Uj-OfO" secondAttribute="trailing" id="dI1-fD-keL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="9cW-lF-D1e" secondAttribute="trailing" id="edO-oO-w1n"/>
                     <constraint firstItem="9cW-lF-D1e" firstAttribute="centerY" secondItem="a0u-zg-W3V" secondAttribute="centerY" id="g6m-yH-BgM"/>
                     <constraint firstAttribute="bottomMargin" secondItem="rOr-tv-3AT" secondAttribute="bottom" constant="-7.5" id="iaT-Ip-oZT"/>
+                    <constraint firstItem="yZo-jX-aHs" firstAttribute="bottom" secondItem="pjl-Uj-OfO" secondAttribute="bottom" id="ko7-Lr-RBG"/>
                     <constraint firstItem="rOr-tv-3AT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tuC-kC-ni3" secondAttribute="bottom" constant="1" id="rwX-Ih-Us9"/>
                     <constraint firstItem="pjl-Uj-OfO" firstAttribute="leading" secondItem="a0u-zg-W3V" secondAttribute="leadingMargin" constant="-8" id="sqB-Ar-QLw"/>
                     <constraint firstItem="9cW-lF-D1e" firstAttribute="leading" secondItem="tuC-kC-ni3" secondAttribute="trailing" constant="8" id="v9I-Ap-dyN"/>

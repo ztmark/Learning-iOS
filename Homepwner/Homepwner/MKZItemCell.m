@@ -11,7 +11,11 @@
 @implementation MKZItemCell
 
 
-
+- (IBAction)showImage:(id)sender {
+    if (self.actionBlock) {
+        self.actionBlock();
+    }
+}
 
 
 @end

@@ -11,6 +11,7 @@
 		4D10C8991C4240EB004C5E0B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D10C8971C4240EB004C5E0B /* DetailViewController.xib */; };
 		4DABB79F1C4B624600AA8CFA /* MKZItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DABB79E1C4B624600AA8CFA /* MKZItemCell.m */; };
 		4DABB7A11C4B62D600AA8CFA /* MKZItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */; };
+		4DABB7A41C4B71ED00AA8CFA /* MKZImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DABB7A31C4B71ED00AA8CFA /* MKZImageViewController.m */; };
 		4DE6B2D01C43B8D900D06608 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B2CF1C43B8D900D06608 /* ImageStore.m */; };
 		4DF31C6F1C40E7C900C36082 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C6E1C40E7C900C36082 /* main.m */; };
 		4DF31C721C40E7C900C36082 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C711C40E7C900C36082 /* AppDelegate.m */; };
@@ -49,6 +50,8 @@
 		4DABB79D1C4B624600AA8CFA /* MKZItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKZItemCell.h; sourceTree = "<group>"; };
 		4DABB79E1C4B624600AA8CFA /* MKZItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKZItemCell.m; sourceTree = "<group>"; };
 		4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKZItemCell.xib; sourceTree = "<group>"; };
+		4DABB7A21C4B71ED00AA8CFA /* MKZImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKZImageViewController.h; sourceTree = "<group>"; };
+		4DABB7A31C4B71ED00AA8CFA /* MKZImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKZImageViewController.m; sourceTree = "<group>"; };
 		4DE6B2CE1C43B8D900D06608 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		4DE6B2CF1C43B8D900D06608 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
 		4DF31C6A1C40E7C900C36082 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +149,8 @@
 				4DABB79D1C4B624600AA8CFA /* MKZItemCell.h */,
 				4DABB79E1C4B624600AA8CFA /* MKZItemCell.m */,
 				4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */,
+				4DABB7A21C4B71ED00AA8CFA /* MKZImageViewController.h */,
+				4DABB7A31C4B71ED00AA8CFA /* MKZImageViewController.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				4DF31C721C40E7C900C36082 /* AppDelegate.m in Sources */,
 				4DF31C6F1C40E7C900C36082 /* main.m in Sources */,
 				4D10C8981C4240EB004C5E0B /* DetailViewController.m in Sources */,
+				4DABB7A41C4B71ED00AA8CFA /* MKZImageViewController.m in Sources */,
 				4DE6B2D01C43B8D900D06608 /* ImageStore.m in Sources */,
 				4DABB79F1C4B624600AA8CFA /* MKZItemCell.m in Sources */,
 			);
