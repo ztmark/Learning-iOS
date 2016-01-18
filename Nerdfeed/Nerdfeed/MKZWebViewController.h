@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MKZWebViewController : UIViewController
+@interface MKZWebViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (nonatomic) NSURL *URL;
 

@@ -39,6 +39,22 @@
     }
 }
 
+
+//- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+//    if (barButtonItem == self.navigationItem.leftBarButtonItem) {
+//        self.navigationItem.leftBarButtonItem = nil;
+//    }
+//}
+
+- (void)splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode {
+    if (displayMode == UISplitViewControllerDisplayModePrimaryOverlay) {
+        self.navigationItem.leftBarButtonItem = nil;
+    } else if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        svc.displayModeButtonItem.title = @"Courses";
+        self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem;
+    }
+}
+
 /*
 #pragma mark - Navigation
 
