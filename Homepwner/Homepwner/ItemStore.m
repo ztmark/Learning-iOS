@@ -76,13 +76,25 @@
 
 - (BNRItem *)createItem {
 
-    BNRItem *item = [BNRItem randomItem];
+//    BNRItem *item = [BNRItem randomItem];
+//    [self.privateItems addObject:item];
+//    return item;
+    double order;
+    if ([self.allItems count] == 0) {
+        order = 1.0;
+    } else {
+        order = [[self.privateItems lastObject] orderingValue] + 1.0;
+    }
+    NSLog(@"Adding after %d items, order = %.2f", [self.privateItems count], order);
+    BNRItem *item = [NSEntityDescription insertNewObjectForEntityForName:@"BNRItem" inManagedObjectContext:self.context];
+    item.orderingValue = order;
     [self.privateItems addObject:item];
     return item;
 }
 
 - (void)removeItem:(BNRItem *)item {
     [[ImageStore sharedStore] deleteImageForKey:item.itemKey];
+    [self.context deleteObject:item];
     [self.privateItems removeObjectIdenticalTo:item];
 }
 
@@ -93,6 +105,22 @@
     BNRItem *item = self.privateItems[fromIndex];
     [self.privateItems removeObjectIdenticalTo:item];
     [self.privateItems insertObject:item atIndex:toIndex];
+
+    double lowerBound = 0.0;
+    if (toIndex > 0) {
+        lowerBound = [self.privateItems[toIndex - 1] orderingValue];
+    } else {
+        lowerBound = [self.privateItems[1] orderingValue] - 2.0;
+    }
+    double upperBound = 0.0;
+    if (toIndex < [self.privateItems count] - 1) {
+        upperBound = [self.privateItems[toIndex - 1] orderingValue];
+    }  else {
+        upperBound = [self.privateItems[toIndex - 1] orderingValue] + 2.0;
+    }
+    double newOrderValue = (lowerBound + upperBound) / 2.0;
+    NSLog(@"moving to order %f", newOrderValue);
+    item.orderingValue = newOrderValue;
 }
 
 - (BOOL)saveChanges {
