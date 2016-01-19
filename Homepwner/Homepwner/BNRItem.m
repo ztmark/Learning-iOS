@@ -1,14 +1,49 @@
 //
 //  BNRItem.m
-//  RandomItems
+//  Homepwner
 //
-//  Created by Mark on 15/12/15.
-//  Copyright © 2015年 Mark. All rights reserved.
+//  Created by Mark on 16/1/19.
+//  Copyright © 2016年 Mark. All rights reserved.
 //
 
 #import "BNRItem.h"
 
 @implementation BNRItem
+
+
+
+// Insert code here to add functionality to your managed object subclass
+
+
+
+- (void)setThumbnailFromImage:(UIImage *)image {
+    CGSize origImageSize = image.size;
+    CGRect newRect = CGRectMake(0, 0, 40, 40);
+    float ratio = MAX(newRect.size.width / origImageSize.width, newRect.size.height / origImageSize.height);
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:newRect cornerRadius:5.0];
+    [path addClip];
+    
+    CGRect projectRect;
+    projectRect.size.width = ratio * origImageSize.width;
+    projectRect.size.height = ratio * origImageSize.height;
+    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0;
+    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0;
+    
+    [image drawInRect:projectRect];
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    self.thumbnail = smallImage;
+    UIGraphicsEndImageContext();
+}
+
+- (void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.dateCreated = [NSDate date];
+    NSUUID *uuid = [[NSUUID alloc] init];
+    NSString *key = [uuid UUIDString];
+    self.itemKey = key;
+}
+
 
 + (instancetype)randomItem
 {
@@ -51,12 +86,12 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super init];
     if (self) {
-        _itemName = [coder decodeObjectForKey:@"itemName"];
-        _serialNumber = [coder decodeObjectForKey:@"serialNumber"];
-        _dateCreated = [coder decodeObjectForKey:@"dateCreated"];
-        _itemKey = [coder decodeObjectForKey:@"itemKey"];
-        _valueInDollars = [coder decodeIntForKey:@"valueInDollars"];
-        _thumbnail = [coder decodeObjectForKey:@"thumbnail"];
+        self.itemName = [coder decodeObjectForKey:@"itemName"];
+        self.serialNumber = [coder decodeObjectForKey:@"serialNumber"];
+        self.dateCreated = [coder decodeObjectForKey:@"dateCreated"];
+        self.itemKey = [coder decodeObjectForKey:@"itemKey"];
+        self.valueInDollars = [coder decodeIntForKey:@"valueInDollars"];
+        self.thumbnail = [coder decodeObjectForKey:@"thumbnail"];
     }
     return self;
 }
@@ -65,36 +100,15 @@
 {
     self = [super init];
     if (self) {
-        _itemName = name;
-        _valueInDollars = value;
-        _serialNumber = sNumber;
-        _dateCreated = [[NSDate alloc] init];
+        self.itemName = name;
+        self.valueInDollars = value;
+        self.serialNumber = sNumber;
+        self.dateCreated = [[NSDate alloc] init];
         NSUUID *uuid = [[NSUUID alloc] init];
-        _itemKey = [uuid UUIDString];
+        self.itemKey = [uuid UUIDString];
     }
     return self;
 }
-
-- (void)setThumbnailFromImage:(UIImage *)image {
-    CGSize origImageSize = image.size;
-    CGRect newRect = CGRectMake(0, 0, 40, 40);
-    float ratio = MAX(newRect.size.width / origImageSize.width, newRect.size.height / origImageSize.height);
-    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:newRect cornerRadius:5.0];
-    [path addClip];
-
-    CGRect projectRect;
-    projectRect.size.width = ratio * origImageSize.width;
-    projectRect.size.height = ratio * origImageSize.height;
-    projectRect.origin.x = (newRect.size.width - projectRect.size.width) / 2.0;
-    projectRect.origin.y = (newRect.size.height - projectRect.size.height) / 2.0;
-
-    [image drawInRect:projectRect];
-    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-    self.thumbnail = smallImage;
-    UIGraphicsEndImageContext();
-}
-
 
 - (instancetype)initWithItemName:(NSString *)name
 {

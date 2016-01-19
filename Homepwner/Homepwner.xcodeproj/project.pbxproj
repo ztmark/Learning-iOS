@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4D10C8981C4240EB004C5E0B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D10C8961C4240EB004C5E0B /* DetailViewController.m */; };
 		4D10C8991C4240EB004C5E0B /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D10C8971C4240EB004C5E0B /* DetailViewController.xib */; };
+		4D866D681C4E32EF0075ABC3 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D866D661C4E32EF0075ABC3 /* Homepwner.xcdatamodeld */; };
+		4D866D6B1C4E34830075ABC3 /* MKZImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D866D6A1C4E34830075ABC3 /* MKZImageTransformer.m */; };
+		4D866D701C4E587A0075ABC3 /* BNRItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D866D6D1C4E587A0075ABC3 /* BNRItem+CoreDataProperties.m */; };
+		4D866D711C4E587A0075ABC3 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D866D6F1C4E587A0075ABC3 /* BNRItem.m */; };
 		4DABB79F1C4B624600AA8CFA /* MKZItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DABB79E1C4B624600AA8CFA /* MKZItemCell.m */; };
 		4DABB7A11C4B62D600AA8CFA /* MKZItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */; };
 		4DABB7A41C4B71ED00AA8CFA /* MKZImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DABB7A31C4B71ED00AA8CFA /* MKZImageViewController.m */; };
@@ -22,7 +26,6 @@
 		4DF31C881C40E7C900C36082 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C871C40E7C900C36082 /* HomepwnerTests.m */; };
 		4DF31C931C40E7C900C36082 /* HomepwnerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31C921C40E7C900C36082 /* HomepwnerUITests.m */; };
 		4DF31CA21C40E80E00C36082 /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31CA11C40E80E00C36082 /* ItemViewController.m */; };
-		4DF31CA51C40EA8800C36082 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31CA41C40EA8800C36082 /* BNRItem.m */; };
 		4DF31CA81C40EB3500C36082 /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF31CA71C40EB3500C36082 /* ItemStore.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,13 @@
 		4D10C8951C4240EB004C5E0B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4D10C8961C4240EB004C5E0B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4D10C8971C4240EB004C5E0B /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		4D866D671C4E32EF0075ABC3 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		4D866D691C4E34830075ABC3 /* MKZImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKZImageTransformer.h; sourceTree = "<group>"; };
+		4D866D6A1C4E34830075ABC3 /* MKZImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKZImageTransformer.m; sourceTree = "<group>"; };
+		4D866D6C1C4E587A0075ABC3 /* BNRItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BNRItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		4D866D6D1C4E587A0075ABC3 /* BNRItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BNRItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		4D866D6E1C4E587A0075ABC3 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
+		4D866D6F1C4E587A0075ABC3 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		4DABB79D1C4B624600AA8CFA /* MKZItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKZItemCell.h; sourceTree = "<group>"; };
 		4DABB79E1C4B624600AA8CFA /* MKZItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKZItemCell.m; sourceTree = "<group>"; };
 		4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKZItemCell.xib; sourceTree = "<group>"; };
@@ -72,8 +82,6 @@
 		4DF31C941C40E7C900C36082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DF31CA01C40E80E00C36082 /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
 		4DF31CA11C40E80E00C36082 /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
-		4DF31CA31C40EA8800C36082 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
-		4DF31CA41C40EA8800C36082 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		4DF31CA61C40EB3500C36082 /* ItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemStore.h; sourceTree = "<group>"; };
 		4DF31CA71C40EB3500C36082 /* ItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,8 +136,6 @@
 			children = (
 				4DF31C701C40E7C900C36082 /* AppDelegate.h */,
 				4DF31C711C40E7C900C36082 /* AppDelegate.m */,
-				4DF31CA31C40EA8800C36082 /* BNRItem.h */,
-				4DF31CA41C40EA8800C36082 /* BNRItem.m */,
 				4DF31C731C40E7C900C36082 /* ViewController.h */,
 				4DF31C741C40E7C900C36082 /* ViewController.m */,
 				4DF31C761C40E7C900C36082 /* Main.storyboard */,
@@ -151,6 +157,13 @@
 				4DABB7A01C4B62D600AA8CFA /* MKZItemCell.xib */,
 				4DABB7A21C4B71ED00AA8CFA /* MKZImageViewController.h */,
 				4DABB7A31C4B71ED00AA8CFA /* MKZImageViewController.m */,
+				4D866D661C4E32EF0075ABC3 /* Homepwner.xcdatamodeld */,
+				4D866D691C4E34830075ABC3 /* MKZImageTransformer.h */,
+				4D866D6A1C4E34830075ABC3 /* MKZImageTransformer.m */,
+				4D866D6C1C4E587A0075ABC3 /* BNRItem+CoreDataProperties.h */,
+				4D866D6D1C4E587A0075ABC3 /* BNRItem+CoreDataProperties.m */,
+				4D866D6E1C4E587A0075ABC3 /* BNRItem.h */,
+				4D866D6F1C4E587A0075ABC3 /* BNRItem.m */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -316,10 +329,13 @@
 				4DF31C751C40E7C900C36082 /* ViewController.m in Sources */,
 				4DF31CA21C40E80E00C36082 /* ItemViewController.m in Sources */,
 				4DF31CA81C40EB3500C36082 /* ItemStore.m in Sources */,
-				4DF31CA51C40EA8800C36082 /* BNRItem.m in Sources */,
 				4DF31C721C40E7C900C36082 /* AppDelegate.m in Sources */,
+				4D866D711C4E587A0075ABC3 /* BNRItem.m in Sources */,
+				4D866D681C4E32EF0075ABC3 /* Homepwner.xcdatamodeld in Sources */,
 				4DF31C6F1C40E7C900C36082 /* main.m in Sources */,
 				4D10C8981C4240EB004C5E0B /* DetailViewController.m in Sources */,
+				4D866D701C4E587A0075ABC3 /* BNRItem+CoreDataProperties.m in Sources */,
+				4D866D6B1C4E34830075ABC3 /* MKZImageTransformer.m in Sources */,
 				4DABB7A41C4B71ED00AA8CFA /* MKZImageViewController.m in Sources */,
 				4DE6B2D01C43B8D900D06608 /* ImageStore.m in Sources */,
 				4DABB79F1C4B624600AA8CFA /* MKZItemCell.m in Sources */,
@@ -569,6 +585,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4D866D661C4E32EF0075ABC3 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D866D671C4E32EF0075ABC3 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 4D866D671C4E32EF0075ABC3 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4DF31C621C40E7C900C36082 /* Project object */;
 }
