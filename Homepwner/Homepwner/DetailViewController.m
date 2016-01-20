@@ -10,6 +10,7 @@
 #import "BNRItem.h"
 #import "ImageStore.h"
 #import "ItemStore.h"
+#import "MKZAssetTypeViewController.h"
 
 @interface DetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
@@ -24,10 +25,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *serialNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 
 @end
 
 @implementation DetailViewController
+- (IBAction)showAssetTypePicker:(UIBarButtonItem *)sender {
+    MKZAssetTypeViewController *avc = [[MKZAssetTypeViewController alloc] init];
+    avc.item = self.item;
+    [self.navigationController pushViewController:avc animated:YES];
+}
 
 - (IBAction)backgroundTapped:(UIControl *)sender {
     [self.view endEditing:YES];
@@ -85,6 +92,13 @@
     NSString *itemKey = self.item.itemKey;
     UIImage *imageToDisplay = [[ImageStore sharedStore] imageForKey:itemKey];
     self.imageView.image = imageToDisplay;
+
+    NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
+
     [self updateFonts];
 }
 

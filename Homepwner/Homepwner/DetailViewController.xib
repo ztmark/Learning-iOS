@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="assetTypeButton" destination="nVT-Jf-Nbe" id="jse-eR-1ww"/>
                 <outlet property="cameraButton" destination="VWj-As-vZ4" id="DEk-BY-59g"/>
                 <outlet property="dateLabel" destination="Icn-Y9-55G" id="Mmc-Io-7dG"/>
                 <outlet property="nameField" destination="Bfa-dZ-xiM" id="Sm2-GZ-taD"/>
@@ -125,6 +126,11 @@
                         <barButtonItem systemItem="camera" id="VWj-As-vZ4">
                             <connections>
                                 <action selector="takePicture:" destination="-1" id="Cfh-fS-yce"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Item" id="nVT-Jf-Nbe">
+                            <connections>
+                                <action selector="showAssetTypePicker:" destination="-1" id="YJY-UP-Cme"/>
                             </connections>
                         </barButtonItem>
                     </items>
