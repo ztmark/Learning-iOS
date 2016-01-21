@@ -22,6 +22,11 @@
 
 @implementation ItemViewController
 
+
++ (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path coder:(NSCoder *)coder {
+    return [[self alloc] init];
+}
+
 #pragma mark - View Life cycle
 
 - (instancetype)initWithStyle:(UITableViewStyle)style {
@@ -36,6 +41,9 @@
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         self.navigationItem.title = @"Homepwner";
+        
+        self.restorationIdentifier = NSStringFromClass([self class]);
+        self.restorationClass = [self class];
 
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                              target:self
@@ -90,12 +98,13 @@
     NSInteger lastRow = [[[ItemStore sharedStore] allItems] indexOfObject:newItem];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-//    DetailViewController *detailViewController = [[DetailViewController alloc] initForNewItem:YES];
-//    detailViewController.item = newItem;
-//    detailViewController.dismissBlock = ^{
-//        [self.tableView reloadData];
-//    };
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initForNewItem:YES];
+    detailViewController.item = newItem;
+    detailViewController.dismissBlock = ^{
+        [self.tableView reloadData];
+    };
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
+    navigationController.restorationIdentifier = NSStringFromClass([navigationController class]);
 //    navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
 //    navigationController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
 //    [self presentViewController:navigationController animated:YES completion:nil];

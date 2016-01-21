@@ -10,7 +10,7 @@
 
 @class BNRItem;
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <UIViewControllerRestoration>
 
 @property (nonatomic, strong) BNRItem *item;
 @property (nonatomic, copy) void (^dismissBlock)(void);

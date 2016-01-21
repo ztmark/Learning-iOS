@@ -16,18 +16,45 @@
 
 @implementation AppDelegate
 
+- (UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder {
+    UIViewController *vc = [[UINavigationController alloc] init];
+    vc.restorationIdentifier = [identifierComponents lastObject];
+    if ([identifierComponents count] == 1) {
+        self.window.rootViewController = vc;
+    }
+    return vc;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ItemViewController *itemViewController = [[ItemViewController alloc] init];
+//    NSLog(@"%@", NSStringFromSelector(_cmd));
+    if (!self.window.rootViewController) {
+    
+    
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        ItemViewController *itemViewController = [[ItemViewController alloc] init];
 
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemViewController];
-    self.window.rootViewController = navController;
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:itemViewController];
+        navController.restorationIdentifier = NSStringFromClass([navController class]);
+        self.window.rootViewController = navController;
 
-    self.window.backgroundColor = [UIColor whiteColor];
+//        self.window.backgroundColor = [UIColor whiteColor];
+    }
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder {
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
     return YES;
 }
 

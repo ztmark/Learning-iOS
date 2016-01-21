@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MKZItemCell.h"
 
-@interface ItemViewController : UITableViewController
+@interface ItemViewController : UITableViewController <UIViewControllerRestoration>
 
 
 
