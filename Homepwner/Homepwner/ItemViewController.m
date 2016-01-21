@@ -13,7 +13,7 @@
 #import "ImageStore.h"
 #import "MKZImageViewController.h"
 
-@interface ItemViewController () <UIPopoverControllerDelegate>
+@interface ItemViewController () <UIPopoverControllerDelegate, UIDataSourceModelAssociation>
 
 @property (nonatomic, strong) IBOutlet UIView *headerView;
 @property (nonatomic, strong) UIPopoverController *imagePopover;
@@ -21,6 +21,43 @@
 @end
 
 @implementation ItemViewController
+
+
+
+- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view {
+    NSString *identifier = nil;
+    if (idx && view) {
+        BNRItem *item = [[ItemStore sharedStore] allItems][idx.row];
+        identifier = item.itemKey;
+    }
+    return identifier;
+}
+
+- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view {
+    NSIndexPath *indexPath = nil;
+    if (identifier && view) {
+        NSArray *items = [[ItemStore sharedStore] allItems];
+        for (BNRItem *item in items) {
+            if ([identifier isEqualToString:item.itemKey]) {
+                int row = [items indexOfObjectIdenticalTo:item];
+                indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+                break;
+            }
+        }
+    }
+    return indexPath;
+}
+
+
+-  (void)encodeRestorableStateWithCoder:(NSCoder *)coder {
+    [coder encodeBool:self.isEditing forKey:@"TableViewIsEditing"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder {
+    self.editing = [coder decodeObjectForKey:@"TableViewIsEditing"];
+    [super decodeRestorableStateWithCoder:coder];
+}
 
 
 + (UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)path coder:(NSCoder *)coder {
@@ -61,6 +98,7 @@
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
     UINib *nib = [UINib nibWithNibName:@"MKZItemCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"MKZItemCell"];
+    self.tableView.restorationIdentifier = @"ItemsViewControllerTableView";
     UIView *header = self.headerView;
     [self.tableView setTableHeaderView:header];
 }
