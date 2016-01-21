@@ -11,6 +11,7 @@
 
 
 @interface HypnosisViewController () <UITextFieldDelegate>
+@property (nonatomic, weak) UITextField *textField;
 @end
 
 @implementation HypnosisViewController
@@ -20,7 +21,8 @@
     CGRect frame = [UIScreen mainScreen].bounds;
     HypnosisView *backgroundView = [[HypnosisView alloc] initWithFrame:frame];
 
-    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+//    CGRect textFieldRect = CGRectMake(40, 70, 240, 30);
+    CGRect textFieldRect = CGRectMake(40, -20, 240, 30);
     UITextField *textField = [[UITextField alloc] initWithFrame:textFieldRect];
 
     textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -29,12 +31,21 @@
     textField.delegate = self;
     [backgroundView addSubview:textField];
 
+    self.textField = textField;
     self.view = backgroundView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"HypnosisViewController loaded its view");
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:2.0 delay:0.0 usingSpringWithDamping:0.25 initialSpringVelocity:0.0 options:0 animations:^{
+        CGRect frame = CGRectMake(40, 70, 240, 30);
+        self.textField.frame = frame;
+    }completion:NULL];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
